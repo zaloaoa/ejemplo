@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Alumno de TTA</string>
+    <string name="action_settings">Settings</string>
+    <string name="usuario">Usuario</string>
+    <string name="introduce">Introduce DNI</string>
+    <string name="password">Contraseña</string>
+    <string name="introduce_pass">Introduce Contraseña</string>
+    <string name="acceder">Acceder</string>
+    <string name="title_activity_menu">Evaluación de TTA</string>
+    <string name="leccion">Lección 1: Introducción a Android</string>
+    <string name="nuevotest">NUEVO TEST</string>
+    <string name="nuevoejercicio">NUEVO EJERCICIO</string>
+    <string name="seguimiento">SEGUIMIENTO</string>
+
+
+
+
+
+</resources>
