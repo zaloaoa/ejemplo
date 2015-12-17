@@ -11,7 +11,17 @@
     <string name="nuevotest">NUEVO TEST</string>
     <string name="nuevoejercicio">NUEVO EJERCICIO</string>
     <string name="seguimiento">SEGUIMIENTO</string>
-
+    <string name="title_activity_test">Nuevo Test</string>
+    <string name="button_send">ENVIAR</string>
+    <string name="enunciado">¿Cuál de las siguientes opciones NO se indica en el fichero de manifiesto de la app?</string>
+    <string name="button_help">Ver ayuda</string>
+    <string name="title_activity_exercise">Nuevo Ejercicio</string>
+    <string name="exercise_enunciado">Explica cómo aplicarías el patrón de diseño MVC en el desarrollo de una app para Android</string>
+    <string name="subir_fichero">SUBIR FICHERO</string>
+    <string name="sacar_foto">SACAR FOTO</string>
+    <string name="grabar_audio">GRABAR AUDIO</string>
+    <string name="grabar_video">GRABAR VIDEO</string>
+    <string name="textohelp">The manifest.......</string>
 
 
 
