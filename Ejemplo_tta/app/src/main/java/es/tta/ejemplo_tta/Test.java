@@ -1,45 +1,69 @@
 package es.tta.ejemplo_tta;
 
+import java.io.Serializable;
+
 /**
  * Created by Usuario on 17/12/2015.
  */
-public class Test {
+public class Test implements Serializable {
 
+//codigo para saber que tipo de consejo:
+    static public final short ADVISE_HTML = 0;
+    static public final short ADVISE_VIDEO = 1;
+    static public final short ADVISE_AUDIO = 2;
+//sus atributos:
+    private String wording;
+    private Choice[] choices;//tiene las opciones y si son correctas  o no
+    private String advise;
+    private short adviseType;
+//constructor
+    public Test(String Wording,String [] choicesWording,boolean [] choicesCorrect, String Advise, short Type){
+        wording = Wording;
+        advise = Advise;
+        adviseType = Type;
+        if(choicesWording.length == choicesCorrect.length){
+            choices = new Choice[choicesCorrect.length];
+            int i = 0;
+            //rellena las opciones y si es corecto o no:
+            for(String choice : choicesWording){
+                choices[i] = new Choice(choice,choicesCorrect[i]);
+                i++;
+            }
+        }
+    }
 
     public String getWording(){
-        String pregunta="¿Cuál de las siguientes opciones NO se indica en el fichero de manifiesto de la app?";
-        return pregunta;
+        return wording;
     }
 
-    public Choice[]getChoices(){
-        Choice[]choices=new Choice[5];
-        choices[0]=new Choice ("Versión de aplicación",false);
-        choices[1]=new Choice("Listado de componentes de la aplicación",false);
-        choices[2]=new Choice ("Opciones del menú de ajustes",true);
-        choices[3]=new Choice("Nivel mínimo de la API Android requerida",false);
-        choices[4]=new Choice("Nombre del paquete java de la aplicación",false);
-
+    public Choice[] getChoices(){
         return choices;
-
-
-
     }
 
-    public class Choice{
-        private String enunciado;
-        private boolean correcto;
-        public Choice(String enunciado, boolean correcto){
-            this.enunciado=enunciado;
-            this.correcto=correcto;
+    public String getAdvice(){
+        return advise;
+    }
 
+    public short getAdviseType(){
+        return adviseType;
+    }
+
+
+    public class Choice implements Serializable{
+
+        private String wording;
+        private boolean correct;
+
+        public Choice(String Swording, boolean Correct){
+            wording=Swording;
+            correct=Correct;
         }
 
-        public String getEnunciado(){
-            return enunciado;
-        }
+        public String getWording(){ return wording;  }
 
-        public boolean isCorrecto(){
-            return correcto;
+        public boolean isCorrect(){
+            return correct;
         }
     }
+
 }

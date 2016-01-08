@@ -11,6 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
+    public final static String EXTRA_EXERCISE = "es.tta.ejemplo_tta.exercise";
+    public final static String EXTRA_DATA ="es.tta.ejemplo_tta.data";
+
+    private Data data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +36,12 @@ public class MenuActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        data = new Data();
     }
 
     public void test(View view){
         Intent intent=new Intent (this, TestActivity.class);
+        intent.putExtra(EXTRA_DATA,data);//pasamos el objeto data, k tiene todo
         startActivity(intent);
 
     }
@@ -42,6 +49,7 @@ public class MenuActivity extends AppCompatActivity {
     public void ejercicio(View view){
 
         Intent intent=new Intent (this, ExerciseActivity.class);
+        intent.putExtra(EXTRA_EXERCISE,"aaaaaaaaaaa");
         startActivity(intent);
     }
 

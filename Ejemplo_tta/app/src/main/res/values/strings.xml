@@ -22,6 +22,12 @@
     <string name="grabar_audio">GRABAR AUDIO</string>
     <string name="grabar_video">GRABAR VIDEO</string>
     <string name="textohelp">The manifest.......</string>
+    <string name="nohaycamara">No hay cámara, no se pueden hacer fotos</string>
+    <string name="nohaymicro">No hay micrófono, no se puede grabar audio</string>
+    <string name="nohayapp">No hay aplicaciones</string>
+    <string name="enviarelfichero">Enviar el fichero</string>
+    <string name="next">NEXT</string>
+
 
 
 
