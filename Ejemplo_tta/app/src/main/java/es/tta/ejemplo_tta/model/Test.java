@@ -1,69 +1,108 @@
 package es.tta.ejemplo_tta.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by Usuario on 17/12/2015.
  */
-public class Test implements Serializable {
+public class Test {
 
-//codigo para saber que tipo de consejo:
-    static public final short ADVISE_HTML = 0;
-    static public final short ADVISE_VIDEO = 1;
-    static public final short ADVISE_AUDIO = 2;
-//sus atributos:
     private String wording;
-    private Choice[] choices;//tiene las opciones y si son correctas  o no
-    private String advise;
-    private short adviseType;
-//constructor
-    public Test(String Wording,String [] choicesWording,boolean [] choicesCorrect, String Advise, short Type){
-        wording = Wording;
-        advise = Advise;
-        adviseType = Type;
-        if(choicesWording.length == choicesCorrect.length){
-            choices = new Choice[choicesCorrect.length];
-            int i = 0;
-            //rellena las opciones y si es corecto o no:
-            for(String choice : choicesWording){
-                choices[i] = new Choice(choice,choicesCorrect[i]);
-                i++;
-            }
-        }
+    private ArrayList choices= new ArrayList<Choice>();
+    static public final String VIDEO = "audio/mpeg";
+    static public final String HTML = "text/html";
+    static public final String AUDIO = "video/mp4";
+
+
+    public Test(){
+
     }
 
     public String getWording(){
+
         return wording;
     }
 
-    public Choice[] getChoices(){
+    public void setWording(String wording){
+
+        this.wording=wording;
+    }
+
+
+    public ArrayList<Choice> getChoices(){
         return choices;
     }
 
-    public String getAdvice(){
-        return advise;
+    public Choice getChoice(int i){
+
+        return (Choice) choices.get(i);
     }
 
-    public short getAdviseType(){
-        return adviseType;
+    public void setChoices(ArrayList choices) {
+        this.choices = choices;
     }
 
 
-    public class Choice implements Serializable{
 
-        private String wording;
+    public static class Choice{
+
+        private int id;
+        private String advise;
+        private String answer;
         private boolean correct;
+        private String mime;
 
-        public Choice(String Swording, boolean Correct){
-            wording=Swording;
-            correct=Correct;
+
+
+        public Choice(){}
+
+        public int getId() {
+            return id;
         }
 
-        public String getWording(){ return wording;  }
+        public void setId(int id) {
+            this.id = id;
+        }
 
-        public boolean isCorrect(){
+        public String getAdvise() {
+            return advise;
+        }
+
+        public void setAdvise(String advise) {
+            this.advise = advise;
+        }
+
+        public String getAnswer() {
+            return answer;
+        }
+
+        public void setAnswer(String answer) {
+            this.answer = answer;
+        }
+
+        public boolean isCorrect() {
             return correct;
         }
+
+        public void setCorrect(boolean correct) {
+            this.correct = correct;
+        }
+
+        public String getMime() {
+            return mime;
+        }
+
+        public void setMime(String mime) {
+            this.mime = mime;
+        }
+
+
     }
+
+
+
+
+
 
 }
