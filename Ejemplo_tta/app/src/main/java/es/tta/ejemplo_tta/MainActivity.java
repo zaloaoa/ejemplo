@@ -1,6 +1,8 @@
 package es.tta.ejemplo_tta;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +16,8 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_LOGIN="es.tta.ejemplo_tta.login";
     public final static String EXTRA_PASSWD="es.tta.ejemplo_tta.passwd";
+
+    private NetworkReceiver receiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);//que evento quiero que se me comunique, cuando hay cambios
+        receiver = new NetworkReceiver ();
+        this.registerReceiver(receiver, filter);
     }
 
     public void login (View view){
@@ -63,5 +71,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();//para que no se vuelva a llamar
+        if(receiver!= null){
+            this.unregisterReceiver(receiver);
+        }
     }
 }

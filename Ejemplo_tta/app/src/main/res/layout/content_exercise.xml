@@ -24,34 +24,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/exercise_enunciado"
-            android:id="@+id/textView4" />
+            android:id="@+id/exercise_wording" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/subir_fichero"
             android:id="@+id/button4"
-            android:onClick="subir_fichero"/>
+            android:onClick="sendFile"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sacar_foto"
-            android:id="@+id/button5"
-            android:onClick="sacar_foto"/>
+            android:id="@+id/send_photo"
+            android:onClick="sendFoto"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/grabar_audio"
-            android:id="@+id/button6"
-            android:onClick="grabar_audio"/>
+            android:id="@+id/send_audio"
+            android:onClick="sendAudio"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/grabar_video"
-            android:id="@+id/button7"
-            android:onClick="grabar_video"/>
+            android:id="@+id/send_video"
+            android:onClick="sendVideo"/>
     </LinearLayout>
 </RelativeLayout>
