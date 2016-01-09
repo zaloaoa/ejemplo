@@ -44,7 +44,6 @@ public class MainActivity extends ModelActivity {
 
     public void login (View view) {
 
-
         EditText editLogin = (EditText) findViewById(R.id.login);
         EditText editPasswd = (EditText) findViewById(R.id.passwd);
         final String dni = editLogin.getText().toString();
