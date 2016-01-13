@@ -18,7 +18,9 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.IOException;
 
-public class ExerciseActivity extends AppCompatActivity  {
+import es.tta.ejemplo_tta.model.Exercise;
+
+public class ExerciseActivity extends ModelActivity  {
 
     private Uri pictureURI;
     final private int READ_REQUEST_CODE=0;
@@ -31,21 +33,12 @@ public class ExerciseActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise);
 
-        Intent intent = getIntent();
-        TextView textExercise = (TextView) findViewById(R.id.exercise_wording);
-        textExercise.setText(intent.getStringExtra(MenuActivity.EXTRA_EXERCISE));
+        Exercise exercise= data.getExercise();
 
-        View view;
-        if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
-            view = findViewById(R.id.send_photo);
-            view.setEnabled(false);
-            view = findViewById(R.id.send_video);
-            view.setEnabled(false);
-        }
-        if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_MICROPHONE)){
-            view = findViewById(R.id.send_audio);
-            view.setEnabled(false);
-        }
+        TextView textExercise = (TextView) findViewById(R.id.exercise_wording);
+        textExercise.setText(exercise.getWording());
+
+
 
     }
 
@@ -81,7 +74,7 @@ public class ExerciseActivity extends AppCompatActivity  {
     }
 
     public void sendAudio(View view){
-       //si no hay microfono
+        //si no hay microfono
         if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_MICROPHONE))
             Toast.makeText(getApplicationContext(),R.string.nohaymicro,Toast.LENGTH_SHORT).show();
         else{
@@ -136,6 +129,7 @@ public class ExerciseActivity extends AppCompatActivity  {
     private void sendFile(Uri uri){
         Toast.makeText(getApplicationContext(),R.string.enviarelfichero,Toast.LENGTH_SHORT).show();
     }
+
 
 
 

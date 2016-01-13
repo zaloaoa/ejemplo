@@ -41,7 +41,12 @@ public class Business {
                 choice.setAnswer(item.getString("answer"));
                 choice.setCorrect(item.getBoolean("correct"));
                 choice.setAdvise(item.optString("advise", null));
-                choice.setMime(item.optString("mime",null));
+                if (item.isNull("resourceType")){
+                    choice.setMime(null);
+                }else
+                {
+                    choice.setMime(item.getJSONObject("resourceType").getString("mime"));
+                }
                 test.getChoices().add(choice);
             }
             return test;
